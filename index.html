@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design/reset.css">
+    <link rel="stylesheet" href="design/design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Password Generator</title>
+</head>
+
+<body>
+    <!-- TITULO - OUTPUT - BOTON DE COPIAR -->
+    <section class="password-generator">
+        <h1>Password generator</h1>
+        <div class="div-output-password">
+            <p class="pw-output"></p>
+            <button id="ctc-btn"> <i class="fa-regular fa-copy"></i></button>
+        </div>
+
+        <span class="container-pw-options">
+            <!-- RANGO DE TAMAÑO DE LA CONTRASEÑA -->
+            <div class="div-options-password">
+                <div class="div-output-range">
+                    <p>Longitud de la contraseña</p>
+                    <p class="output-range"></p>
+                    <input class="pw-length" type="range" min="5" max="24" step="1" value="14">
+                </div>
+                <!-- OPCIONES DE LOS CARACTERES DE LA CONTRASEÑA -->
+                <div class="character-pw-option">
+                    <span>
+                        <input type="checkbox" name="uppercase-sl" id="uppercase-sl">
+                        <label for="uppercase-sl"><i class="fa-solid fa-check"></i></label>
+                    </span>
+                    <label for="uppercase-sl">Añadir mayúsculas</label>
+                </div>
+                <div class="character-pw-option">
+                    <span>
+                        <input type="checkbox" name="lowercase-sl" id="lowercase-sl">
+                        <label for="lowercase-sl"><i class="fa-solid fa-check"></i></label>
+                    </span>
+                    <label for="lowercase-sl">Añadir minusculas</label>
+                </div>
+                <div class="character-pw-option">
+                    <span>
+                        <input type="checkbox" name="number-sl" id="number-sl">
+                        <label for="number-sl"><i class="fa-solid fa-check"></i></label>
+                    </span>
+                    <label for="number-sl">Añadir números</label>
+                </div>
+                <div class="character-pw-option">
+                    <span>
+                        <input type="checkbox" name="symbols-sl" id="symbols-sl">
+                        <label for="symbols-sl"><i class="fa-solid fa-check"></i></label>
+                    </span>
+                    <label for="symbols-sl">Añadir símbolos</label>
+                </div>
+            </div>
+            <!-- SALIDA DEL NIVEL DE SEGURIDAD DE LA CONTRASEÑA -->
+            <div class="div-output-strength-pw">
+                <p>Seguridad: </p>
+                <div class="div-strength-lvl">
+                    <p class="strength-txt"></p>
+                    <div class="strength-lvl lvl-1"></div>
+                    <div class="strength-lvl lvl-2"></div>
+                    <div class="strength-lvl lvl-3"></div>
+                    <div class="strength-lvl lvl-4"></div>
+                </div>
+
+            </div>
+            <!-- BOTON DE GENERAR -->
+            <button id="btn-generate-password">Generar</button>
+        </span>
+
+    </section>
+
+</body>
+<script src="scripts/app.js"> </script>
+
+</html>
