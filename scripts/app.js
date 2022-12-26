@@ -1,7 +1,7 @@
 "use strict";
 
 const rangePassword = document.querySelector(".pw-length");
-const btnGenerar = document.querySelector("#btn-generate-password");
+const btnGenerar = document.querySelector(".btn-generate-password");
 
 
 var puntosSeguridad = 0;
@@ -42,12 +42,18 @@ const chSymbol = document.querySelector("#symbols-sl");
 
 btnGenerar.addEventListener("click",
     () => {
-        reseteo();
-        generarStringChar();
-        generarTamañoContraseña();
-        generarContraseña();
-        generarNivelSeguridad();
-
+        if(existeCheck === true){
+           
+            reseteo();
+            generarStringChar();
+            generarTamañoContraseña();
+            generarContraseña();
+            generarNivelSeguridad();
+        }else{
+            console.log("introduce parametro valido")
+            crearAlerta();
+        }
+        
     })
 
 const charLowerCase = "abcdefghijklmnñopqrstuvwxyz";
@@ -135,13 +141,66 @@ const btnCopy = document.querySelector("#ctc-btn");
 
 btnCopy.addEventListener("click",
     () => {
-        console.log(contraseñaGenerada)
-        navigator.clipboard.writeText("<empty clipboard>")
-            .then(() => {
-                alert('Text copied to clipboard');
-            })
-            .catch(err => {
-                alert('Error in copying text: ', err);
-            });
 
-    })
+        if(contraseñaGenerada){
+            if (window.isSecureContext && navigator.clipboard) {
+                navigator.clipboard.writeText(contraseñaGenerada);
+            } else {
+                unsecuredCopyToClipboard(contraseñaGenerada);
+            }
+            
+        }
+        
+    });
+//en caso de no ser una página segura HTTP se procede a copiar el ccódigo de otra forma 
+    const unsecuredCopyToClipboard = (text) => {
+        const textArea = document.createElement("textarea");
+        textArea.value = text; 
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try { document.execCommand('copy') }
+        catch (err) {
+            console.error('Unable to copy to clipboard', err)
+        }
+        document.body.removeChild(textArea)
+    };
+
+
+    //comprobar que exista algún check
+
+    const chBox = document.querySelectorAll(".character-pw-option >  span > input");
+    
+    let existeCheck = false;
+    const comprobarChecked = () => {
+        //btnGenerar.disabled = true;
+        btnGenerar.classList.add("desactivado");
+        
+        chBox.forEach(element => {
+            element.addEventListener("click",
+            ()=> {
+                for(let i = 0; i<chBox.length; i++){
+                    if(chBox[i].checked === true) {
+                        existeCheck = true;
+                        btnGenerar.classList.remove("desactivado")
+                        break;
+                    }else{
+                        btnGenerar.classList.add("desactivado");
+                        existeCheck = false;
+                    };     
+                } 
+                if(existeCheck){
+                    btnGenerar.disabled = false;
+                }else{
+                    //btnGenerar.disabled = true;
+                }
+            })
+        });
+        
+    }
+comprobarChecked();
+
+const crearAlerta = () => {
+    const parentEl = document.createElement("div");
+    parentEl.className = "notificacion";
+}

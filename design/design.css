@@ -163,7 +163,7 @@ color: white;
 
     /* btn generar password */
 
-    #btn-generate-password{
+    .btn-generate-password{
         padding: 1rem;
         background-color: var(--colorsecundario);
         text-transform: uppercase;
@@ -173,4 +173,14 @@ color: white;
         font-weight: 400;
         font-size: 1rem;
     }
-        
+
+    .container-pw-options .desactivado{
+        background-color: rgba(191, 191, 191, 0.827);
+        color:rgb(205, 204, 204)
+    } 
+    .notificacion{
+        position: absolute;
+        width: 300px;
+        height: 200px;
+        background-color: red;
+    }
