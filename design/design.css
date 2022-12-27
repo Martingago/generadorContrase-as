@@ -178,9 +178,30 @@ color: white;
         background-color: rgba(191, 191, 191, 0.827);
         color:rgb(205, 204, 204)
     } 
-    .notificacion{
+
+    .notification-crl{
         position: absolute;
-        width: 300px;
-        height: 200px;
-        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        top: 10%;
+        height: auto;
+    }
+    .notificacion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 2.5rem;
+        font-size: .7rem;
+        height: 45px;
+        width: fit-content;
+        text-align: center;
+        background-color: rgba(211, 211, 211, 0.786);
+        margin: .2rem;
+        border-radius: 5px;
+        backdrop-filter: blur(2px);
+        transition:  all .3s linear;
+        overflow: hidden;
     }
