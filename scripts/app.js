@@ -1,62 +1,34 @@
 "use strict";
 import { generarNivelSeguridad } from "./nivelSeguridad.js";
 import { crearAlerta, comprobarChecked, existeCheck } from "./alertasUsuario.js";
-import { generarStringChar, stringChar} from "./generateStringChar.js";
+import { generarStringChar, stringChar,ptsCar} from "./generateStringChar.js";
+import {generarTamañoContraseña, tamPassword, ptsTam} from "./tamContraseña.js";
 
-export {contraseñaGenerada, puntosSeguridad ,btnGenerar};
+export {contraseñaGenerada ,btnGenerar};
 
-const rangePassword = document.querySelector(".pw-length");
 const btnGenerar = document.querySelector(".btn-generate-password");
 
-var puntosSeguridad = 0;
-
-const reseteo = () => {
-    puntosSeguridad = 0;
-    stringChar = "";
-}
-
-//tamaño de la contraseña y output
-const outputTamPassword = document.querySelector(".output-range");
-const outputPassword = document.querySelector(".pw-output");
-var tamPAssword = rangePassword.value;
-outputTamPassword.textContent = tamPAssword;
-
-rangePassword.addEventListener("mousemove",
-    () => {
-        tamPAssword = rangePassword.value;
-        outputTamPassword.textContent = tamPAssword;
-    })
-
-const generarTamañoContraseña = () => {
-    tamPAssword = rangePassword.value;
-    if (tamPAssword > 7) puntosSeguridad++;
-    if (tamPAssword >= 12) puntosSeguridad++;
-    if (tamPAssword >= 17) puntosSeguridad++;
-    if (tamPAssword >= 22) puntosSeguridad++;
-}
-
+comprobarChecked();
 btnGenerar.addEventListener("click",
     () => {
         if (existeCheck === true) {
 
-            reseteo();
             generarStringChar();
             generarTamañoContraseña();
             generarContraseña();
-            generarNivelSeguridad();
+            generarNivelSeguridad(ptsCar,ptsTam);
             
-        } else {
-            
+        } else {      
             crearAlerta();
         }
-
     })
 
+const outputPassword = document.querySelector(".pw-output");
 var contraseñaGenerada;
 const generarContraseña = () => {
     if (stringChar != 0) {
         contraseñaGenerada = "";
-        for (var i = 0; i < tamPAssword; i++) {
+        for (var i = 0; i < tamPassword; i++) {
             const r = (Math.random() * stringChar.length).toFixed();
             contraseñaGenerada += stringChar.charAt(r);
         }
@@ -64,5 +36,3 @@ const generarContraseña = () => {
         return contraseñaGenerada;
     }
 }
-
-comprobarChecked();

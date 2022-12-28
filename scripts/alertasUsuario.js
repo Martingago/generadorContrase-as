@@ -7,7 +7,6 @@ export { crearAlerta, comprobarChecked, existeCheck };
 const chBox = document.querySelectorAll(".character-pw-option >  span > input");
 let existeCheck = false;
 
-
 /**
  * @param {*} existeCheck devuelve un boolean.
  * TRUE: el usuario ha marcado alguna de las casillas de selección => botón generar contraseña habilitado
@@ -41,7 +40,6 @@ const comprobarChecked = () => {
 
 const containerEl = document.querySelector(".notification-crl");
 const crearAlerta = () => {
-
     if (containerEl.childElementCount <= 2) {
         const parentEl = document.createElement('div');
 

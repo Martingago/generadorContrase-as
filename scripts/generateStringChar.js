@@ -1,9 +1,7 @@
 "use strict"
-export {generarStringChar, stringChar};
-
-
-var stringChar = "";
-var ptsCar = 0;
+export {generarStringChar, stringChar, ptsCar};
+var stringChar;
+var ptsCar;
 
 //Checks de parametros;
 const chMinusculas = document.querySelector("#lowercase-sl");
@@ -24,6 +22,8 @@ const charSymbol = "\\ºª!|\"@·#$~%€¬/&()?'¡`^[]+*}{¨´.:-_,;<>"
  * 
  */
 const generarStringChar = () => {
+    ptsCar = 0;
+    stringChar = "";
     if(chMinusculas.checked || chMayusculas.checked) ptsCar++;
     if (chMinusculas.checked) {
         stringChar += charLowerCase;
@@ -38,6 +38,4 @@ const generarStringChar = () => {
         stringChar += charSymbol;
         ptsCar++;
     }
-    return
-    ptsCar  + stringChar;
 }

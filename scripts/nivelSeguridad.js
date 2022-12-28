@@ -1,14 +1,16 @@
 "use strict";
-
-//función que mide la seguridad de la contraseña.
-import { puntosSeguridad } from "./app.js";
 export {generarNivelSeguridad};
 
 const lvlSeguridad = document.querySelectorAll(".strength-lvl");
 const strengthTxt = document.querySelector(".strength-txt");
-const generarNivelSeguridad = () => {
+
+
+//función que mide la seguridad de la contraseña.
+const generarNivelSeguridad = (a,b) => {
+    let puntosSeguridad = 0;
     var element = 0;
     var color;
+    puntosSeguridad = a + b;
     switch (true) {
         case (puntosSeguridad <= 2):
             strengthTxt.textContent = "BAJO";
