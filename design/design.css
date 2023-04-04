@@ -26,9 +26,6 @@ color: white;
         text-align: center;
         margin-bottom: 1rem;
     }
-.div-output-password .pw-output{
-    color:var(--colorclaro);
-}
 
 
 /* salida de la contraseña */
@@ -48,6 +45,7 @@ color: white;
         grid-template-columns: 1fr;
         gap: 1rem;
         padding: 1.5rem;
+        border-radius: 4px;
     }
     #ctc-btn{
         background-color: transparent;
@@ -81,6 +79,9 @@ color: white;
     }
     .password-generator .div-options-password .div-output-range .output-range{
         font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: var(--colorsecundario)
     }
 
@@ -89,6 +90,7 @@ color: white;
 /* opciones de los caracteres de la contraseña */
     .character-pw-option{
         color: white;
+        
     }
     .character-pw-option span{
         position: relative;
@@ -179,29 +181,52 @@ color: white;
         color:rgb(205, 204, 204)
     } 
 
-    .notification-crl{
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-        top: 10%;
-        height: auto;
+   @media screen and (max-width: 720px) {
+    .password-generator{
+        max-width: 500px;
+        width: 90%;
+        padding: .5rem;
     }
-    .notificacion{
+   }
+
+   @media screen and (max-width: 470px) {
+   
+     .password-generator{
+        width: 95%;
+     }
+
+     /* Ajustes de la contraseña */
+     .container-pw-options{
+        padding: .5rem;
+     }
+
+     .password-generator .div-options-password .div-output-range p{
+         font-size: .9rem;
+         display: flex;
+         align-items: flex-end;
+        }
+     .password-generator .div-options-password .div-output-range .output-range{
+        font-size: 1.2rem;
+     }
+     .password-generator  .div-output-password{
+        padding: 1rem .5rem ;
+     }
+     /* salida por pantalla */
+     .pw-output{
+        font-size: .9rem;
         display: flex;
-        justify-content: center;
         align-items: center;
-        padding: 0 2.5rem;
-        font-size: .7rem;
-        height: 45px;
-        width: fit-content;
-        text-align: center;
-        background-color: rgba(211, 211, 211, 0.786);
-        margin: .2rem;
-        border-radius: 5px;
-        backdrop-filter: blur(2px);
-        transition:  all .3s linear;
-        overflow: hidden;
-    }
+     }
+
+     .character-pw-option{
+        font-size: .9rem;
+     }
+
+     /* salida nivel seguridad */
+     .div-output-strength-pw{
+        font-size: .9rem;
+        padding: .75rem .5rem;
+     }
+
+   }
+

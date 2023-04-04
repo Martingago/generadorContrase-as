@@ -13,7 +13,7 @@ const chSymbol = document.querySelector("#symbols-sl");
 const charLowerCase = "abcdefghijklmnñopqrstuvwxyz";
 const charUppercase = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 const charNumber = "0123456789";
-const charSymbol = "\\ºª!|\"@·#$~%€¬/&()?'¡`^[]+*}{¨´.:-_,;<>"
+const charSymbol = "@#$%€&/()=?¿.-_+*"
 
 
 /**
@@ -38,4 +38,5 @@ const generarStringChar = () => {
         stringChar += charSymbol;
         ptsCar++;
     }
+    return ptsCar;
 }

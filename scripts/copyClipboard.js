@@ -10,7 +10,7 @@ btnCopy.addEventListener("click",
             } else {
                 unsecuredCopyToClipboard(contraseñaGenerada);
             }
-
+            notificacionCopiar();
         }
 
     });
@@ -27,3 +27,23 @@ const unsecuredCopyToClipboard = (text) => {
     }
     document.body.removeChild(textArea)
 };
+
+const notificacionCopiar = () => {
+    const  cont = document.querySelector(".btn-container");
+
+    //Crea un div con un mensaje de notificacion
+    var notifyCopy = document.createElement("div");
+    notifyCopy.className ="not-clipboard";
+    var textNot = document.createTextNode("Copiado!")
+    notifyCopy.appendChild(textNot);
+    //añade el div al boton (En caso de existir 1 no lo genera)
+    if(!cont.querySelector(".not-clipboard")){
+        cont.appendChild(notifyCopy);
+        setTimeout(() => {
+            setTimeout(() => {
+                cont.removeChild(notifyCopy);       
+            }, 300);
+            notifyCopy.style.opacity = 0;
+        }, 1100);
+    }
+}

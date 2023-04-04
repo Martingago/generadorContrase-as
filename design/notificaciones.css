@@ -1,0 +1,42 @@
+.btn-container{
+    position: relative;
+}
+
+.not-clipboard{
+    background-color: rgba(211, 211, 211, 0.786);
+    position: absolute;
+    bottom: 0%;
+    right: 50%;
+    transform: translate(50%, calc(100% + 5px));
+    font-size: .7rem;
+    padding: .35rem;
+    border-radius: 3px;
+    transition: opacity .3s linear;
+}
+
+.notification-crl{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    top: 10%;
+    height: auto;
+}
+.notificacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2.5rem;
+    font-size: .7rem;
+    height: 45px;
+    width: fit-content;
+    text-align: center;
+    background-color: rgba(211, 211, 211, 0.786);
+    margin: .2rem;
+    border-radius: 5px;
+    backdrop-filter: blur(2px);
+    transition:  all .3s linear;
+    overflow: hidden;
+}
